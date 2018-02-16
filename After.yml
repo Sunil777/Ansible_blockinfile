@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Reading B file and register it into data variable
+    shell: cat B.txt
+    register: data
+  - name: Insert the text from file B into file A
+    blockinfile:
+      dest: /Users/maxd/A.txt
+      insertafter: "Below*"
+      marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+      block: |
+        {{ data.stdout }}
