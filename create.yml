@@ -1,0 +1,15 @@
+- hosts: localhost
+  connection: local
+  tasks:
+
+  - name: blockinfile file created
+    blockinfile:
+      dest: "/root/malik.yml"
+      content: |
+        File updated!
+        Source file: 
+        New file:
+        Backup file: 
+      create: yes
+      insertafter: EOF
+      marker: ""
