@@ -1,0 +1,19 @@
+---
+- hosts: 127.0.0.1
+  tasks:
+    - name: first block
+      blockinfile:
+        dest: /etc/bashrc
+        insertafter: EOF
+        block: |
+          line1
+          line2
+          line3
+
+    - name: second block
+      blockinfile:
+        dest: /etc/bashrc
+        insertafter: EOF
+        block: |
+          line4
+          line5
